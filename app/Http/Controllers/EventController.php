@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class EventController extends Controller
 {
@@ -14,7 +15,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::orderBy('created_at','desc')->paginate(5);
+        $events = Event::orderBy('created_at','desc')->paginate(10);
 
         return view('events.index',compact('events'));
 
@@ -38,7 +39,15 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Event::create([
+            'name' =>  $request->name,
+            'place' =>  $request->location,
+            'dateEvent' => Carbon::parse($request->dateEvent),
+            'timeEvent' => $request->timeEvent
+        ]);
+
+        return redirect('events');
     }
 
     /**
@@ -83,6 +92,10 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        $event->delete();
+
+        return redirect('/events');
     }
 }

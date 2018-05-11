@@ -34,8 +34,9 @@
                             <th>Event Name</th>
                             <th>Event Location</th>
                             <th>Date & Time</th>
-                            <th>Update / Delete</th>
-                            <th>View</th>
+                            <th>Time</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                 @foreach($events as $event)
@@ -43,13 +44,18 @@
                         <tr>
                         <td>{{$event->name}}</td>
                         <td>{{$event->place}}</td>
-                        <td>{{$event->created_at}}</td>
+                        <td>{{$event->dateEvent}}</td>
+                        <td>{{$event->timeEvent}}</td>
                         <td>
-                            <a href=""><button class="waves-effect waves-light btn orange lighten-1" style="margin-bottom:5px">Update</button></a>
-                            <a href=""><button class="waves-effect waves-light btn red darken-3">Delete</button></a>
+
+                             <a href="{{route('events.show',$event->id)}}"><button class="waves-effect waves-teal btn blue-grey lighten-3">View</button></a> 
+                            
+                                                       
                         </td>
                         <td>
-                            <a href=""><button class="waves-effect waves-teal btn blue-grey lighten-3">View</button></a>
+                            {!! Form::open(['action' => ['EventController@destroy',$event->id],'method' => 'DELETE','onsubmit' => 'return confirmBox();']) !!}                            
+                                {!! Form::submit('Delete',['class' => 'btn waves-effect waves-light']); !!}
+                            {!! Form::close() !!}
                         </td>
                         </tr>
                     </tbody>
@@ -70,5 +76,23 @@
     </div>
 
 
+
+@endsection
+
+@section('script')
+    
+    <script>
+
+    function confirmBox(){
+        var answer = confirm('Are you sure to delete this?');
+        if(answer == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    </script>
 
 @endsection
