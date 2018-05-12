@@ -27,8 +27,71 @@
               <h5>Recent Matches</h5>
             </div>
             <div class="col s6 m6" style="margin-top : 10px">
-              <a href="{{route('events.create')}}"><button class="right waves-effect waves-light btn">New Event</button></a>
-              <a href="{{route('events.index')}}"><button class="right waves-effect waves-light btn" style="margin-right : 10px">View All Event</button></a>
+              {{-- <a href="{{route('events.create')}}"><button class="right waves-effect waves-light btn">New Event</button></a> --}}
+
+              {{-- Modal Trigger --}}
+                        <button data-target="modal1" class="btn right modal-trigger">New Event</button>
+                        <a href="{{route('events.index')}}"><button class="right waves-effect waves-light btn blue darken-1" style="margin-right : 10px">View All Event</button></a>
+                        
+
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <form action="{{route('events.store')}}" method="post">
+
+                                {{ csrf_field() }}
+                            <div class="modal-content">
+                            <h4>Add A New Event</h4>
+                            
+                                <div class="row">
+                                
+                                    <div class="input-field col s12">
+
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input id="name" name="name" type="text" class="validate">
+                                        <label for="name">Event Name</label>
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+
+                                        <i class="material-icons prefix">add_location</i>
+                                        <input id="location" name="location" type="text" class="validate">
+                                        <label for="location">Location</label>
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+
+                                        <i class="material-icons prefix">date_range</i>
+                                        <input id="dateEvent" name="dateEvent" type="text" class="datepicker validate">
+                                        <label for="dateEvent">Date</label>
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+
+                                        <i class="material-icons prefix">access_alarm</i>
+                                        <input id="timeEvent" name="timeEvent" type="text" class="timepicker validate">
+                                        <label for="timeEvent">Time</label>
+
+                                    </div>
+                                    
+                                
+
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="reset" class="btn waves-effect waves-light red accent-4">Reset Form</button>
+                                <button type="submit" class="btn waves-effect waves-light">Create Event</button>
+                               
+                            </div>
+
+                             </form>
+
+                        </div>
+
             </div>
             
           </div>
@@ -66,3 +129,42 @@
     </div>  
 @endsection
 
+
+@section('script')
+    <script>
+      
+      // Modal Initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+    });
+
+     //Create event initialization for datepicker and timepicker
+    var dateToday = new Date();
+
+        //Date picker JS
+
+        $(document).ready(function(){
+            $('.datepicker').datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                format: 'd mmmm yyyy',
+                numberOfMonths: 3,
+                minDate: dateToday,
+            });
+            
+        });
+
+        //Time picker JS
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.timepicker');
+            var options = {
+                twelveHour: false,
+                formatSubmit: "H:i:00",
+            };
+            var instances = M.Timepicker.init(elems, options);
+        });
+
+      
+    </script>
+@endsection
