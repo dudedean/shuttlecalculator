@@ -97,7 +97,7 @@
           </div>
 
         @if($events->count())
-          <table>
+          <table class="responsive-table">
             <thead>
                 <tr>
                     <th>Name</th>
