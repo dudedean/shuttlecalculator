@@ -71,7 +71,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        return view('events.edit',compact('event'));
     }
 
     /**
@@ -83,7 +85,16 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        $event->update([
+            'name' => $request->name,
+            'place' => $request->place,
+            'dateEvent' => Carbon::parse($request->dateEvent),
+            'timeEvent' => Carbon::parse($request->timeEvent)
+        ]);
+
+        return redirect('events');
     }
 
     /**
