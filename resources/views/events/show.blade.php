@@ -4,6 +4,8 @@
 
     <div class="container" id="app">
 
+        {{-- Show event --}}
+
         <card size="col s12 m12" color="" text="black-text" style="padding-top:15px;">
 
             <h3 slot="title"><b>{{$event->name}}</b></h3>
@@ -55,6 +57,23 @@
                 </div>
 
             </div>
+
+        </card>
+
+        {{-- Show player --}}
+
+        <card size="col s12 m12" color="" text="black-text" style="padding-top:15px;">
+
+            <h3 slot="title"><b>List of Players</b></h3>
+
+            <div slot="body">
+
+            <formC v-bind:eventid="{{$event->id }}"></formC>
+            
+            
+
+            </div>
+            
 
         </card>
 

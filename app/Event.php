@@ -13,4 +13,8 @@ class Event extends Model
     {
         return date('h:i:s A ', strtotime($value));
     }
+
+    public function players() {
+        return $this->hasMany('App\Player');
+    }
 }

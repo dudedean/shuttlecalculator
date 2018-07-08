@@ -5,8 +5,14 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import axios from 'axios';
 
 window.Vue = require('vue');
+
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+Vue.prototype.$http = window.axios
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +21,10 @@ window.Vue = require('vue');
  */
 
 Vue.component('card', require('./components/CardComponent.vue'));
-Vue.component('formcomp', require('./components/FormComponent.vue'));
+Vue.component('formc', require('./components/FormComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+    }
 });

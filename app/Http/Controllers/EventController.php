@@ -60,7 +60,9 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        return view('events.show',compact('event'));
+        $players = $event->players;
+
+        return view('events.show',compact('event','players'));
     }
 
     /**

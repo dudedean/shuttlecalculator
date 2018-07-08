@@ -20,11 +20,12 @@
 </template>
 
 <script>
+
     export default {
 
         data () {
             return {
-                date : ''
+                date : '',
             }
         },
         props : ['size','color','text'],
