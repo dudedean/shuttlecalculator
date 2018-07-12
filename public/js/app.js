@@ -13494,6 +13494,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -13798,6 +13803,26 @@ var render = function() {
                     _vm._v("clear")
                   ]),
                   _vm._v("Delete Player\n                        ")
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "button",
+                {
+                  staticClass: "waves-effect red darken-1 btn",
+                  on: {
+                    click: function($event) {
+                      _vm.calculateFees(index, player.id)
+                    }
+                  }
+                },
+                [
+                  _c("i", { staticClass: "material-icons left" }, [
+                    _vm._v("attach_money")
+                  ]),
+                  _vm._v("Calculate\n                        ")
                 ]
               )
             ]),

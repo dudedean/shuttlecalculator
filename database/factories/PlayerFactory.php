@@ -10,3 +10,5 @@ $factory->define(App\Player::class, function (Faker $faker) {
         'totalFee' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 30.00)
     ];
 });
+
+// factory(App\Player::class, 50)->create();

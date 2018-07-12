@@ -12,3 +12,6 @@ $factory->define(App\Event::class, function (Faker $faker) {
         'timeEvent' => $faker->time(),
     ];
 });
+
+
+// factory(App\Event::class, 50)->create();

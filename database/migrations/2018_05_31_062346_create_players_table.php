@@ -17,8 +17,8 @@ class CreatePlayersTable extends Migration
             $table->increments('id');
             $table->integer('event_id')->unsigned()->nullable()->index();
             $table->string('name');
-            $table->integer('shuttlecocks');
-            $table->integer('totalFee');
+            $table->integer('shuttlecocks')->default(0);
+            $table->float('totalFee')->default(0);
             $table->timestamps();
         });
     }

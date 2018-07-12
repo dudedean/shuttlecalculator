@@ -58,6 +58,11 @@
                                 <i class="material-icons left">clear</i>Delete Player
                             </button>
                         </td>
+                        <td>
+                            <button class="waves-effect red darken-1 btn" v-on:click="calculateFees(index,player.id);">
+                                <i class="material-icons left">attach_money</i>Calculate
+                            </button>
+                        </td>
                         <td>RM {{player.totalFee}}</td>
                     </tr>
             </tbody>
