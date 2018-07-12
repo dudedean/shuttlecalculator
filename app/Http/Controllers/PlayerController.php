@@ -32,15 +32,16 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        $player = $request->isMethod('put') ? Player::findOrFail($id) : new Player;
+        $player = new Player();
 
         $player->id = $request->id;
         $player->event_id = $request->event_id;
         $player->name = $request->name;
 
-        if($player->save()){
-            return new PlayerResource($player);
-        }
+        $player->save();
+        
+        return new PlayerResource($player);
+
     }
 
     public function show($id)
@@ -48,6 +49,20 @@ class PlayerController extends Controller
         $player = Player::findOrFail($id);
 
         return new PlayerResource($player);
+    }
+
+    public function update(Request $request, $id){
+
+        $player = Player::findOrFail($id);
+
+        $player->shuttlecocks = $request->shuttlecocks;
+        $player->totalFee = $request->totalFee;
+
+        $player->save();
+
+        return new PlayerResource($player);
+
+
     }
 
     /**

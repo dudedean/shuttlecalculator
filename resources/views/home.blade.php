@@ -54,11 +54,28 @@
 
                                     <div class="input-field col s12">
 
+                                        <i class="material-icons prefix">account_balance</i>
+                                        <input id="hall" name="hall" type="text" class="validate">
+                                        <label for="hall">Hall Price (RM)</label>
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+
+                                        <i class="material-icons prefix">attach_money</i>
+                                        <input id="shuttlecockfees" name="shuttlecockfees" type="text" class="validate">
+                                        <label for="shuttlecockfees">Shuttlecock/Person (RM)</label>
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+
                                         <i class="material-icons prefix">add_location</i>
                                         <input id="location" name="location" type="text" class="validate">
                                         <label for="location">Location</label>
 
                                     </div>
+                                    
 
                                     <div class="input-field col s12">
 
@@ -97,7 +114,7 @@
           </div>
 
         @if($events->count())
-          <table class="responsive-table">
+          <table class="highlight">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -107,7 +124,7 @@
               </thead>
           @foreach($events as $event)
               <tbody>
-                <tr>
+              <tr onclick="window.location='http://shuttlecalculator.test/events/'+{{$event->id}}" style="cursor:pointer;">
                   <td>{{$event->name}}</td>
                   <td>{{$event->place}}</td>
                   <td>{{$event->created_at}}</td>

@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('players', 'PlayerController@index');
 Route::get('players/{id}', 'PlayerController@showPlayers');
 Route::post('player', 'PlayerController@store');
-Route::put('player/{id}', 'PlayerController@store');
+Route::put('player/{id}', 'PlayerController@update');
 Route::delete('player/{id}', 'PlayerController@destroy');

@@ -5,7 +5,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import axios from 'axios';
 
 window.Vue = require('vue');
 

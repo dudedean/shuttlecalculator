@@ -48,6 +48,22 @@
 
                                     <div class="input-field col s12">
 
+                                        <i class="material-icons prefix">account_balance</i>
+                                        {!! Form::text('hall', null, ['class' => 'validate']); !!}
+                                        {!! Form::label('hall', 'Hall Price (RM)'); !!}
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+
+                                        <i class="material-icons prefix">attach_money</i>
+                                        {!! Form::text('shuttlecockfees', null, ['class' => 'validate']); !!}
+                                        {!! Form::label('shuttlecockfees', 'Shuttlecock/Person (RM)'); !!}
+
+                                    </div>
+
+                                    <div class="input-field col s12">
+
                                         <i class="material-icons prefix">date_range</i>
                                         <input id="dateEvent" name="dateEvent" type="text" class="datepicker validate">
                                         <label for="dateEvent">Date</label>
@@ -89,7 +105,7 @@
             <div slot="body">
 
                 @if($events->count())
-                <table class="responsive-table">
+                <table class="highlight">
                     <thead>
                         <tr>
                             <th>Event Name</th>

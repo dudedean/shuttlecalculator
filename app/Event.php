@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['name','place','dateEvent','timeEvent'];
+    protected $fillable = ['name','place','dateEvent','timeEvent','hall','shuttlecockfees'];
 
     public function getTimeEventAttribute($value)
     {

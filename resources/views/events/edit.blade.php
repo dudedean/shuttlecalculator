@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Create a new match
+    Edit Event : {{$event->name}}
 @endsection
 
 
@@ -35,6 +35,22 @@
 
                     </div>    
 
+                    <div class="input-field col s12">
+
+                        <i class="material-icons prefix">account_balance</i>
+                        {!! Form::text('hall', null, ['class' => 'validate']); !!}
+                        {!! Form::label('hall', 'Hall Price (RM)'); !!}
+
+                    </div>
+
+                    <div class="input-field col s12">
+
+                        <i class="material-icons prefix">attach_money</i>
+                        {!! Form::text('shuttlecockfees', null, ['class' => 'validate']); !!}
+                        {!! Form::label('shuttlecockfees', 'Shuttlecock/Person (RM)'); !!}
+
+                    </div>
+
                     <div class="input-field col s12">                    
 
                         <i class="material-icons prefix">date_range</i>
@@ -53,7 +69,7 @@
                     <div class="row">
                         <div class="col s12">
                             <div class="center-align">
-                                {!! Form::submit('Create Event',['class' => 'btn waves-effect waves-light']); !!}
+                                {!! Form::submit('Edit Event',['class' => 'btn waves-effect waves-light']); !!}
                                 {!! Form::reset('Clear Form',['class' => 'btn waves-effect waves-light red darken-2','step' => '1']); !!}
                             </div>
                         </div>
@@ -76,6 +92,9 @@
     <script>
     
     //Date picker JS
+
+     //Create event initialization for datepicker and timepicker
+    var dateToday = new Date();
 
         $(document).ready(function(){
             $('.datepicker').datepicker({

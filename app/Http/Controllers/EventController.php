@@ -43,6 +43,8 @@ class EventController extends Controller
         Event::create([
             'name' =>  $request->name,
             'place' =>  $request->location,
+            'hall' =>  $request->hall,
+            'shuttlecockfees' =>  $request->shuttlecockfees,
             'dateEvent' => Carbon::parse($request->dateEvent),
             'timeEvent' => $request->timeEvent
         ]);
@@ -91,7 +93,9 @@ class EventController extends Controller
 
         $event->update([
             'name' => $request->name,
-            'place' => $request->place,
+            'place' => $request->place, 
+            'hall' => $request->hall,
+            'shuttlecockfees' => $request->shuttlecockfees,
             'dateEvent' => Carbon::parse($request->dateEvent),
             'timeEvent' => Carbon::parse($request->timeEvent)
         ]);

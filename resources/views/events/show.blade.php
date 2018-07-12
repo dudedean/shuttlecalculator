@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    {{ $event->name }}
+@endsection
+
 @section('content')
 
     <div class="container" id="app">
@@ -22,6 +26,24 @@
                     </div>
                     <div class="col s6 m6">
                         <p>{{$event->place}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s3 m3">
+                        <b>Hall Price (RM)</b>
+                    </div>
+                    <div class="col s6 m6">
+                        <p>{{$event->hall}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s3 m3">
+                        <b>Shuttlecock/person (RM)</b>
+                    </div>
+                    <div class="col s6 m6">
+                        <p>{{$event->shuttlecockfees}}</p>
                     </div>
                 </div>
 
@@ -68,7 +90,12 @@
 
             <div slot="body">
 
-            <formC v-bind:eventid="{{$event->id }}"></formC>
+            <formC 
+            v-bind:eventid="{{$event->id }}" 
+            v-bind:hall="{{$event->hall }}" 
+            v-bind:shuttlecockfees="{{$event->shuttlecockfees}}">
+            
+        </formC>
             
             
 
